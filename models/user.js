@@ -23,7 +23,10 @@ const userSchema = new Schema({
         required: [true, 'please enter a password'],
         minlength: [6, 'minimal length must be 6 characters'],
     },
-    cartItems: [String]
+    cart: {
+        type: Array,
+        default: []
+    }
 });
 
 userSchema.pre('save', async function (next) {

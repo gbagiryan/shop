@@ -4,10 +4,11 @@ const jwt = require('jsonwebtoken');
 const requireAuth = (req, res, next)=>{
     const token = req.cookies.jwt;
     if (token){
-        jwt.verify(token, 'jwt secret', (err, decodedToken)=>{
+        jwt.verify(token, 'jwt secret', async (err, decodedToken)=>{
             if (err){
                 res.redirect('/login');
             }else{
+                req.user = await User.findById(decodedToken.id);
                 next();
             }
         })

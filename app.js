@@ -9,7 +9,7 @@ const Product = require('./models/product');
 
 dotenv.config();
 const app = express();
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3000;
 
 //disable caching
 app.use((req, res, next) => {
