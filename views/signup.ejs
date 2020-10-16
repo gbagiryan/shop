@@ -1,0 +1,25 @@
+<!doctype html>
+
+<%- include('partials/header'); %>
+
+<body class="authentication-pages">
+<%- include('partials/nav'); %>
+<h1>Sign up</h1>
+<form>
+    <label for="firstName">Your name</label>
+    <input type="text" name="firstName" required>
+    <div class="firstName error"></div>
+    <label for="last_Name">Your last name</label>
+    <input type="text" name="lastName" required>
+    <div class="lastName error"></div>
+    <label for="email">Your email</label>
+    <input type="text" name="email" required>
+    <div class="email error"></div>
+    <label for="password">Your password</label>
+    <input type="password" name="password" required>
+    <div class="password error"></div>
+    <button>Sign Up</button>
+</form>
+<script src="js/signup.js"></script>
+</body>
+</html>

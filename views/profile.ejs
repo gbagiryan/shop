@@ -1,0 +1,36 @@
+<!doctype html>
+
+<%- include('partials/header'); %>
+
+<body class="authentication-pages">
+<%- include('partials/nav'); %>
+<h1>Profile</h1>
+<div class="user-page">
+    <ul class="user_data">
+        <% if(user){ %>
+            <li><%= user.firstName %></li>
+            <li><%= user.lastName %></li>
+            <li><%= user.email %></li>
+        <% } %>
+    </ul>
+    <ul class="shopping-cart">
+
+        <ul class="cart-container">
+            <% if(cardProducts && cardProducts.length>0){ %>
+                <% cardProducts.forEach(element => { %>
+                    <li class="cart-element">
+                        <a class="fas fa-times-circle" href="/remove-from-cart/<%= element._id %>"></a>
+                        <span class="cart-element_name"><%= element.name %></span>
+                        <img class="cart-element_img" src=<%= element.imgSource %>>
+                        <span class="cart-element_price"><%= element.price + '$' %></span>
+                    </li>
+                <% }); %>
+            <% } else{ %>
+                    <li class="cart-element">
+                        <h1>No Items in cart</h1>
+                    </li>
+            <% } %>
+        </ul>
+
+    </ul>
+</div>

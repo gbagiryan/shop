@@ -1,0 +1,21 @@
+<!doctype html>
+
+<%- include('partials/header'); %>
+
+<body class="authentication-pages">
+<%- include('partials/nav'); %>
+<h1>Login</h1>
+
+<form>
+    <label for="email">Your username</label>
+    <input type="text" name="email">
+    <div class="email error"></div>
+    <label for="password">Your password</label>
+    <input type="password" name="password">
+    <div class="password error"></div>
+    <button>Log in</button>
+</form>
+
+<script src="js/login.js"></script>
+</body>
+</html>

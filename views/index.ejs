@@ -1,0 +1,23 @@
+<!doctype html>
+
+<%- include('partials/header'); %>
+<body class="authentication-pages">
+<%- include('partials/nav'); %>
+
+<h1>Welcome</h1>
+<div>
+    <% if(products.length>0){ %>
+        <ul class="products-container">
+            <% products.forEach(element => { %>
+                <li class="products-element">
+                    <span class="products-element_name"><%= element.name %></span>
+                    <img class="products-element_img" src=<%= element.imgSource %>>
+                    <span class="products-element_price"><%= element.price + '$' %></span>
+                    <a class="button-add" href="/add-to-cart/<%=element._id%>">Add to cart</a>
+                </li>
+            <% }); %>
+        </ul>
+    <% } %>
+</div>
+</body>
+</html>
