@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 const authRoutes = require('./routes/authRoutes');
 const cartRoutes = require('./routes/cartRoutes');
-const {requireAuth, checkUser, authedUser} = require('./middleware/authMiddleware');
+const {checkUser, authedUser} = require('./middleware/authMiddleware');
 const Product = require('./models/product');
 
 dotenv.config();
@@ -16,12 +16,15 @@ app.use((req, res, next) => {
     res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private')
     next()
 });
+
+mongoose.set('useFindAndModify', false);
+
 app.set('view engine', 'ejs');
 app.use(express.static('./public/'));
 app.use(express.json());
 app.use(cookieParser());
 
-mongoose.connect(process.env.DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(process.env.DB_CONNECT, {useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => app.listen(port, () => {
         console.log(`Example app listening at http://localhost:${port}`)
     }))

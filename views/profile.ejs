@@ -19,7 +19,8 @@
             <% if(cardProducts && cardProducts.length>0){ %>
                 <% cardProducts.forEach(element => { %>
                     <li class="cart-element">
-                        <a class="fas fa-times-circle" href="/remove-from-cart/<%= element._id %>"></a>
+                        <a class="fas fa-times-circle" href="/remove-from-cart/<%= element._id %>"> </a>
+                        <span class="cart-element_amount">Amount: <%= element.amount%></span>
                         <span class="cart-element_name"><%= element.name %></span>
                         <img class="cart-element_img" src=<%= element.imgSource %>>
                         <span class="cart-element_price"><%= element.price + '$' %></span>

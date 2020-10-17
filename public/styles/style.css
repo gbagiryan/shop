@@ -198,3 +198,7 @@ p {
     color: red;
     float: left;
 }
+.cart-element_amount{
+    float: left;
+    margin-left: 10px;
+}
