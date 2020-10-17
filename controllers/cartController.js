@@ -58,21 +58,6 @@ const removeFromCart_get = async (req, res) => {
         await user.updateOne({$pull: {cart: {itemID: id}}});
     }
 
-
-    // const user = await User.findOne({_id: req.user._id});
-    //
-    // let itemCounter = 0;
-    // user.cart.forEach((item)=>{
-    //     if (item!==id){
-    //         updatedCart.push(item);
-    //     }
-    // })
-    // await user.updateOne({cart: updatedCart});
-
-    // await User.findOneAndUpdate(
-    //     {_id: req.user._id},
-    //     {$pull: {cart: id}});
-
     res.redirect('/profile');
 }
 
